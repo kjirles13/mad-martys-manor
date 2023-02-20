@@ -17,10 +17,17 @@ public class Game {
                 -1, -1, -1, 1));
         map.add(new Room("Foyer",
                 "A large front hall with high ceilings, a grand chandelier, and an even\ngrander main staircase. An ominous old wooden clock sits to the left,\nand its swinging pendulum sounds like the heartbeat of this manor...\ntick...tick...tick...",
-                -2, -1, 0, 3));
-        map.add(new Room("Grand Staircase",
-                "",
+                -2, -1, 0, 2));
+        map.add(new Room("Sitting Room", "A large velvet couch sits to your left with a love seat to match. Mad Marty would have entertained guests here if he hadn't been a recluse for the last 30 years.",
+                -1, -1, 1, 3));
+        map.add(new Room("Art Gallery", "",
+                4, -1, 2, -1));
+        map.add(new Room("Grand Hall", "",
+                5, 3, 6, -1));
+        map.add(new Room("Library", "",
                 -1, -1, -1, -1));
+
+
 
 
         map.get(1).setPhrase("Back in the foyer. Man, that clock gives me the creeps...");
@@ -36,7 +43,7 @@ public class Game {
             return;
         } else if (roomIndex == -2) {
             roomIndex = 12;
-            System.out.println("You're walking up the spiral staircase.");
+            System.out.println("You're walking up the Grand Staircase.");
 
             try {
                 Thread.sleep(1000);
