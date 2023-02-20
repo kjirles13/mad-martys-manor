@@ -1,7 +1,11 @@
 package gameobjects;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Room extends Thing {
     private int n, s, e, w;
+    private List<Thing> contents;
 
     public Room(String name, String description, int n, int s, int e, int w) {
         super(name, description);
@@ -9,6 +13,7 @@ public class Room extends Thing {
         this.s = s;
         this.e = e;
         this.w = w;
+        this.contents = new ArrayList<>();
     }
 
     public int getN() {
@@ -27,6 +32,10 @@ public class Room extends Thing {
         return w;
     }
 
+    public List<Thing> getContents() {
+        return contents;
+    }
+
     public void setN(int n) {
         this.n = n;
     }
@@ -42,4 +51,17 @@ public class Room extends Thing {
     public void setW(int w) {
         this.w = w;
     }
+
+    public void setContents(List<Thing> contents) {
+        this.contents = contents;
+    }
+
+    public void addObject(Thing item){
+        contents.add(item);
+    }
+
+    public void dropObject(Thing item){
+        contents.remove(item);
+    }
+    
 }
