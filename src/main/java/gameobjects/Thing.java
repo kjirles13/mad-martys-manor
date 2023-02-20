@@ -1,6 +1,6 @@
 package gameobjects;
 
-public abstract class Thing {
+public class Thing {
     private String name, description;
 
     public Thing(String name, String description) {

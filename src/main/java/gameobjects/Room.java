@@ -63,5 +63,5 @@ public class Room extends Thing {
     public void dropObject(Thing item){
         contents.remove(item);
     }
-    
+
 }
