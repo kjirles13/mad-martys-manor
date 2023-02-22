@@ -8,7 +8,6 @@ public class Room extends Thing {
     private List<Thing> contents;
     private int counter;
     private String phrase;
-    private int autoExit;
 
     public Room(String name, String description, int n, int s, int e, int w) {
         super(name, description);
@@ -19,11 +18,6 @@ public class Room extends Thing {
         this.contents = new ArrayList<>();
         this.counter = 0;
         this.phrase = "";
-        this.autoExit = -1;
-    }
-
-    public void setAutoExit(int autoExit) {
-        this.autoExit = autoExit;
     }
 
     public int getCounter() {
