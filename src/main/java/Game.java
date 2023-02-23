@@ -35,6 +35,8 @@ public class Game {
 
         enterRoom(1);
         enterRoom(-2);
+
+//        print("You hear the clock...~ tick...~ tick...~ tick...");
     }
 
     public static void enterRoom(int roomIndex) {
@@ -73,5 +75,24 @@ public class Game {
         }
 
         System.out.println(room.getDescription());
+    }
+
+
+    private static void print(String string) {
+        String[] sections = string.split("~");
+        for (int i = 0; i < sections.length; i++) {
+            System.out.print(sections[i]);
+            if (i+1 < sections.length) {
+                delay(500);
+            }
+        }
+    }
+
+    private static void delay(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 }
