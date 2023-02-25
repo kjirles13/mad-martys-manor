@@ -50,7 +50,7 @@ public class Game {
     }
 
     public static void enterRoom(String direction) {
-        int roomIndex = player.getCurrentRoom().getExitIndexByDirection(direction);
+        int roomIndex = player.getCurrentRoom().getExitByDirection(direction);
 
         if (roomIndex == -1) {
             System.out.println("You can't go that way!");
