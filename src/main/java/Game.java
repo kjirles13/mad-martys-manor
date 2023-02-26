@@ -25,8 +25,50 @@ public class Game {
         map.add(new Room("Grand Hall", "",
                 5, 3, 6, -1));
         map.add(new Room("Library", "",
-                -1, -1, -1, -1));
-        //test
+                -1, -4, -1, -1));   // when passage is unlocked, set n: 10
+        map.add(new Room("Dining Hall", "",
+                -1, -1, 7, 4));
+        map.add(new Room("Kitchen", "",
+                9, 8, 24, 6));
+        map.add(new Room("Pantry", "",
+                7, -1, -1, -1));
+        map.add(new Room("Garden", "",
+                10, 7, -1,-1));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+        map.add(new Room("", "",
+                0,0,0,0));
+
 
 
 
@@ -43,7 +85,7 @@ public class Game {
             System.out.println("You can't go that way!");
             return;
         } else if (roomIndex == -2) {
-            roomIndex = 12;
+            roomIndex = 11;
             System.out.println("You're walking up the Grand Staircase.");
 
             try {
