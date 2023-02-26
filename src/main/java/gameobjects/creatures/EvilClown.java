@@ -7,7 +7,7 @@ public class EvilClown extends Thing {
         super(name, description);
     }
 
-    public String move() {
+    public String cutDown() {
         return "";
     }
 }
