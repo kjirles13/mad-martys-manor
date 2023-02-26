@@ -25,7 +25,47 @@ public class Game {
         map.add(new Room("Grand Hall", "",
                 5, 3, 6, -1));
         map.add(new Room("Library", "",
-                -1, -1, -1, -1));
+                -1, -4, -1, -1));   // when passage is unlocked, set n: 10
+        map.add(new Room("Dining Hall", "",
+                -1, -1, 7, 4));
+        map.add(new Room("Kitchen", "",
+                9, 8, 24, 6));
+        map.add(new Room("Pantry", "",
+                7, -1, -1, -1));
+        map.add(new Room("Garden", "",
+                10, 7, -1,-1));
+        map.add(new Room("Aviary", "",
+                -1, 9, -1, -1));   // when passage is unlocked, set w: 5
+        map.add(new Room("Upstairs Hallway", "", //11
+                17, -3, 24, 18));
+        map.add(new Room("Basement Hallway", "", //12
+                -1, 13, 24, 14));
+        map.add(new Room("Cellar", "",
+                12, -1, -1, -1));
+        map.add(new Room("Basement Hallway", "further down the hallway",
+                -1, 15, 12, 16));
+        map.add(new Room("Marty's Parts Room", "",
+                16, -1, 14, -1));
+        map.add(new Room("Laboratory", "",
+                -1, 15, 14, -1));   // when passage is unlocked, set n: 21
+        map.add(new Room("Observatory", "",
+                -1, 11, -1, -1));
+        map.add(new Room("Upstairs Hallway", "further down the hallway",
+                20, 19, 11, 21));
+        map.add(new Room("Daughter's Room", "",
+                18, -1, -1, -1));
+        map.add(new Room("Guest Room", "",
+                -1, 18, -1, -1));
+        map.add(new Room("Mad Marty's Bedroom", "",
+                -1, 22, 18, -1));  // when passage is unlocked, set n: 16
+        map.add(new Room("En Suite Bathroom", "",
+                21, -1, -1, -1));
+        map.add(new Room("EXIT", "",
+                0,0,0,0));
+        map.add(new Room("Kitchen Stairwell", "",
+                11 , 12, -1, -1));
+
+
 
 
 
@@ -35,6 +75,8 @@ public class Game {
 
         enterRoom(1);
         enterRoom(-2);
+        enterRoom(2);
+        enterRoom(-3);
     }
 
     public static void enterRoom(int roomIndex) {
@@ -42,7 +84,7 @@ public class Game {
             System.out.println("You can't go that way!");
             return;
         } else if (roomIndex == -2) {
-            roomIndex = 12;
+            roomIndex = 11;
             System.out.println("You're walking up the Grand Staircase.");
 
             try {
