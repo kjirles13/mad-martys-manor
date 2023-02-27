@@ -3,7 +3,7 @@ package gameobjects.creatures;
 
 public class EvilClown{
     String name = "Evil Marionette Clown";
-    String description = "terrifying clown marionette blocking your passage into Mad Marty's daughter's room.";
+    String description = "a terrifying clown marionette blocking your passage into Mad Marty's daughter's room.";
 
     public EvilClown() {
     }
