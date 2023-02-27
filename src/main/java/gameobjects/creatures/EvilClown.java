@@ -1,10 +1,19 @@
 package gameobjects.creatures;
 
-import gameobjects.Thing;
 
-public class EvilClown extends Thing {
-    public EvilClown(String name, String description) {
-        super(name, description);
+public class EvilClown{
+    String name = "Evil Marionette Clown";
+    String description = "terrifying clown marionette blocking your passage into Mad Marty's daughter's room.";
+
+    public EvilClown() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String cutDown() {

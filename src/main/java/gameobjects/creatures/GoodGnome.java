@@ -1,9 +1,18 @@
 package gameobjects.creatures;
 
-import gameobjects.Thing;
 
-public class GoodGnome extends Thing {
-    public GoodGnome(String name, String description) {
-        super(name, description);
+public class GoodGnome{
+    String name = "Good Gnome";
+    String description = "a stout garden gnome come to life.";
+
+    public GoodGnome() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

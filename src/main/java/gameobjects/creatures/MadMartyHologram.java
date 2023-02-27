@@ -1,11 +1,19 @@
 package gameobjects.creatures;
 
-import gameobjects.Thing;
+public class MadMartyHologram {
+    private String name = "Mad Marty";
+    private String description = "glowing hologram of Mad Marty.";
 
-public class MadMartyHologram extends Thing {
+    public MadMartyHologram() {
+    }
 
-    public MadMartyHologram(String name, String description) {
-        super(name, description);
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getIntro() {
