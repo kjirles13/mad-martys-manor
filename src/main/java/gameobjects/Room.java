@@ -94,7 +94,9 @@ public class Room extends Thing {
         else return transition;
     }
 
-    public void addTranition(String direction, String text) {
+    public void addTransition(String direction, String text) {
         transitions.put(direction, text);
     }
+
+
 }
