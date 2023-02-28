@@ -8,9 +8,6 @@ public abstract class Thing {
         this.description = description;
     }
 
-    protected Thing() {
-    }
-
     public String getName() {
         return name;
     }
@@ -25,5 +22,13 @@ public abstract class Thing {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Thing{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
