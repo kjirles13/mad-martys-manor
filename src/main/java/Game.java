@@ -1,17 +1,22 @@
 import gameobjects.Player;
 import gameobjects.Room;
+import gameobjects.Thing;
 import gameobjects.utility.StringParser;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
     static List<Room> map = new ArrayList<>();
     static Player player = new Player("Greg", "");
 
+
     public static void main(String[] args) {
 
+        Scanner userInput = new Scanner(System.in);
 
         map.add(new Room("Office",
                 "This is a dusty, dank office littered with papers.~A large ornate wooden desk sits in the middle of the room where Mad Marty used to plan out his twisted creations.~Let's see what's on his desk...",
@@ -80,12 +85,47 @@ public class Game {
 
         map.get(1).setPhrase("Back in the foyer. Man, that clock gives me the creeps...");
 
-
+        boolean running = true;
+        System.out.println("Welllccommmeeee , now you're trapped");
         enterRoom(1);
-        enterRoom(-2);
-        enterRoom(2);
-        enterRoom(-3);
+        // Kit tells you to go to office
+
+        while (running){
+            while(true) {
+                inRoomMove();
+                String input = userInput.nextLine();
+                if (input.equals("1")) {
+                    listRoomObjects();
+                    break;
+                } else if (input.equals("2")) {
+                    leaveRoom();
+                    break;
+                } else {
+                    System.out.println("That was not a valid input. Enter the number of the option. ");
+                }
+            }
+        }
     }
+
+
+    public static void inRoomMove(){
+    System.out.println("Where do you want to go now?\n) +" +
+            " \t1. Look around room \n " +
+            " \t2. Leave room \n");
+    }
+
+    public static void leaveRoom(){}
+
+    public static List<Thing> listRoomObjects(){
+        List <Thing> roomContents = player.getCurrentRoom().getContents();
+        int i = 1;
+        for (Thing object : roomContents) {
+            System.out.println(String.format("%d. %s", i, object.getName()));
+            i++;
+        }
+        return roomContents;
+    }
+
 
     public static void enterRoom(int roomIndex) {
         if (roomIndex == -1) {
