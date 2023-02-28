@@ -1,6 +1,6 @@
 package gameobjects;
 
-public class Thing {
+public abstract class Thing {
     private String name, description;
 
     public Thing(String name, String description) {
@@ -22,5 +22,13 @@ public class Thing {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Thing{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
