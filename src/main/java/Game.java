@@ -69,16 +69,13 @@ public class Game {
 
 
 
-        print("You hear the clock...~ tick...~ tick...~ tick...");
-//        print("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non cursus augue, eget maximus urna. Donec fringilla urna a sem accumsan, nec dapibus mi auctor. Etiam ante ex, elementum in justo a, maximus gravida eros. Aliquam lacinia, libero a porttitor hendrerit, ligula erat convallis enim, in accumsan augue ante et est. Duis varius nec tortor eu lacinia. Aenean non nisi sit amet nisi pharetra tempor. Vestibulum maximus mauris ac hendrerit aliquet. Fusce ornare faucibus orci. Donec imperdiet mi eu nibh accumsan, sed euismod sem pharetra. Mauris non eros eget leo tempor fermentum nec id arcu. In risus libero, consequat at turpis et, lobortis pretium velit. Mauris pellentesque nulla id arcu dictum, fermentum iaculis neque facilisis. Morbi vehicula diam quis leo elementum sagittis. Integer ultrices, neque sagittis consectetur efficitur, nisl nisi eleifend sem, non dictum est dolor id sem.");
+        map.get(1).setPhrase("Back in the foyer. Man, that clock gives me the creeps...");
 
-//        map.get(1).setPhrase("Back in the foyer. Man, that clock gives me the creeps...");
-//
-//
-//        enterRoom(1);
-//        enterRoom(-2);
-//        enterRoom(2);
-//        enterRoom(-3);
+
+        enterRoom(1);
+        enterRoom(-2);
+        enterRoom(2);
+        enterRoom(-3);
     }
 
     public static void enterRoom(int roomIndex) {
@@ -89,20 +86,12 @@ public class Game {
             roomIndex = 11;
             System.out.println("You're walking up the Grand Staircase.");
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            delay(1000);
         } else if (roomIndex == -3) {
             roomIndex = 1;
             System.out.println("You're walking down the Grand Staircase.");
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            delay(1000);
         }
 
         Room room = map.get(roomIndex);
@@ -110,11 +99,7 @@ public class Game {
 
         System.out.println("You're in the " + room.getName());
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+        delay(1000);
 
         System.out.println(room.getDescription());
     }
