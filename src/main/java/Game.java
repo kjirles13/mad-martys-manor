@@ -1,5 +1,6 @@
 import gameobjects.Player;
 import gameobjects.Room;
+import gameobjects.utility.StringParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,8 +78,6 @@ public class Game {
 
 
 
-
-
         map.get(1).setPhrase("Back in the foyer. Man, that clock gives me the creeps...");
 
 
@@ -96,20 +95,12 @@ public class Game {
             roomIndex = 11;
             System.out.println("You're walking up the Grand Staircase.");
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            delay(1000);
         } else if (roomIndex == -3) {
             roomIndex = 1;
             System.out.println("You're walking down the Grand Staircase.");
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            delay(1000);
         }
 
         Room room = map.get(roomIndex);
@@ -117,12 +108,28 @@ public class Game {
 
         System.out.println("You're in the " + room.getName());
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+        delay(1000);
 
         System.out.println(room.getDescription());
     }
+
+    private static void print(String string) {
+        String[] sections = string.split("~");
+//        String[] sections = StringParser.parse(string,60);
+        for (int i = 0; i < sections.length; i++) {
+            System.out.print(sections[i]);
+            if (i+1 < sections.length) {
+                delay(500);
+            }
+        }
+    }
+
+    private static void delay(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 }

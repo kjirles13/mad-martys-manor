@@ -1,10 +1,13 @@
 package gameobjects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Room extends Thing {
     private int n, s, e, w;
+    private Map<String, String> transitions;
     private List<Thing> contents;
     private int counter;
     private String phrase;
@@ -16,6 +19,7 @@ public class Room extends Thing {
         this.e = e;
         this.w = w;
         this.contents = new ArrayList<>();
+        transitions = new HashMap<>();
         this.counter = 0;
         this.phrase = "";
     }
@@ -84,4 +88,13 @@ public class Room extends Thing {
         contents.remove(item);
     }
 
+    public String getTransition(String direction) {
+        String transition = transitions.get(direction);
+        if (transition == null) return "";
+        else return transition;
+    }
+
+    public void addTranition(String direction, String text) {
+        transitions.put(direction, text);
+    }
 }
