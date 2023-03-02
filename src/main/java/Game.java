@@ -30,7 +30,7 @@ public class Game {
         // ** Temporary Transition Test Code **
         map.add(new Room("Observatory", "",
                 -1, -1, -1, -1));
-        map.get(1).addTranition("N","You proceed up the grand staircase. Your footsteps echo as you slowly\n" +
+        map.get(1).addTransition("N","You proceed up the grand staircase. Your footsteps echo as you slowly\n" +
                 "make your way up them.");
 
         player.setCurrentRoom(map.get(0));
