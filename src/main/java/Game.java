@@ -24,7 +24,8 @@ public class Game {
                 -1, -1, -1, 1));
         map.add(new Room("Foyer",
                 "A large front hall with high ceilings, a grand chandelier, and an even grander main staircase." +
-                        "~An ominous old wooden clock sits to the left, and it's swinging pendulum sounds like the heartbeat of this manor: ~tick...~tick...~tick...",
+                        "~An ominous old wooden clock sits to the left, and it's swinging pendulum sounds like the heartbeat of " +
+                        "this manor: ~tick...~tick...~tick...",
                 -2, -1, 0, 2));
         map.add(new Room("Sitting Room", "A large velvet couch sits to your left with a love seat to match." +
                 "~Mad Marty would have entertained guests here if he hadn't been a recluse for the last 30 years.",
@@ -105,17 +106,14 @@ public class Game {
         map.add(new Room("Kitchen Stairwell", "This is an old creaky stairwell.~There are stairs that lead up and down.",
                 11 , 12, -1, -1));
 
-        /**
-         * When entering the aviary from 5 :
-         * The aviary is filled with colorful birds, trees, and a small fountain in the center. There are cages along the walls, some empty and some with birds inside.
-         */
-
-        /**
-         * When you have the flashlight in the cellar
-         * The room smells of cold, damp earth.~You swing your flashlight around the room, revealing dirt walls and floor.~The room appears to be empty, but then you notice the glint of a reflection on the far side.
-         */
-
+        // Set phrases
         map.get(1).setPhrase("Back in the foyer. Man, that clock gives me the creeps...");
+        map.get(10).setPhrase("The aviary is filled with colorful birds, trees, and a small fountain in the center.~There are cages along" +
+                " the walls, some empty and some with birds inside.");
+        /** I think picking up the flashlight should increment the room order automatically so if you have it before you go to the cellar, it will just pull the phrase */
+        map.get(13).setPhrase("The room smells of cold, damp earth.~You swing your flashlight around the room, revealing dirt walls and floor." +
+                "~The room appears to be empty, but then you notice the glint of a reflection on the far side.");
+
 
 
         /** Start of Game*/
@@ -157,17 +155,6 @@ public class Game {
 
     }
 
-    public static List<Thing> listRoomObjects(){
-        List<Thing> roomContents = player.getCurrentRoom().getContents();
-        int i = 1;
-        for (Thing object : roomContents) {
-            System.out.println(String.format("%d. %s", i, object.getName()));
-            i++;
-        }
-        return roomContents;
-    }
-
-
     public static void enterRoom(int roomIndex) {
         if (roomIndex == -1) {
             System.out.println("You can't go that way!");
@@ -198,12 +185,23 @@ public class Game {
         room.incrementCounter();
     }
 
+    public static List<Thing> listRoomObjects(){
+        List<Thing> roomContents = player.getCurrentRoom().getContents();
+        int i = 1;
+        for (Thing object : roomContents) {
+            System.out.println(String.format("%d. %s", i, object.getName()));
+            i++;
+        }
+        return roomContents;
+    }
+
     private static void print(String string) {
 //        String[] sections = string.split("~");
         String[] sections = StringParser.parse(string,60);
         for (int i = 0; i < sections.length; i++) {
             System.out.println(sections[i]);
             delay(1000);
+            /** I think the delay before the menu pops up to let you continue reading the last line is kind of nice! */
             /*if (i+1 < sections.length) {
                 delay(1000);
             }*/
@@ -217,5 +215,4 @@ public class Game {
             ex.printStackTrace();
         }
     }
-
 }
