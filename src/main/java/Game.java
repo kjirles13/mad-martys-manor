@@ -118,10 +118,33 @@ public class Game {
 
         /** Start of Game*/
 
-        boolean running = true;
-        System.out.println("Welllccommmeeee , now you're trapped\n");
+        print("\nThe infamous Mad Marty has invited you to his manor for a mysterious meeting...~" +
+                            "\nPress any key to enter the manor");
+        userInput.nextLine();
+
         enterRoom(1);
-        // Kit tells you to go to office
+
+        print("Is that a pigeon flying towards you? What the hell is a pigeon doing in here?~" +
+                "It looks like he has a tiny scroll attached to his leg.~" +
+                "A carrier pigeon? This guy really was insane...~" +
+                "You tentatively bend over and remove the scroll from its ankle");
+
+        System.out.println("\nPress any key to read his note");
+        userInput.nextLine();
+
+        print("\nWelcome to my manor!~" +
+                "I think you'll find it a very interesting place...~" +
+                "My office is just over to your right. Please proceed there for our meeting.~" +
+                "\t\t\t\t\t\t-MM\n~" +
+                "Weird old man...~" +
+                "You turn right and make your way over to the large wooden door.");
+
+        System.out.println("\nPress any key to enter the office");
+        userInput.nextLine();
+
+        enterRoom(0);
+
+        boolean running = true;
 
         while (running){
             while(true) {
@@ -129,23 +152,27 @@ public class Game {
                 String input = userInput.nextLine();
 
                 List<Thing> roomContents;
+                boolean validOption = false;
 
-                if (input.equals("1")) {
-                    roomContents = listRoomObjects();
-                    break;
-                } else if (input.equals("2")) {
-                    exitRoom();
-                    break;
-                } else {
-                    System.out.print("That was not a valid input. Enter the number of the option >>> ");
+                while (!validOption) {
+                    if (input.equals("1")) {
+                        roomContents = listRoomObjects();
+                        validOption = true;
+                    } else if (input.equals("2")) {
+                        exitRoom();
+                        validOption = true;
+                    } else {
+                        System.out.print("That was not a valid input. Enter the number of the option >>> ");
+                    }
                 }
+
             }
         }
     }
 
 
     public static void inRoomMove(){
-    System.out.println("\nWhere do you want to go now?\n" +
+    System.out.println("\nWhat do you want to do now?\n" +
             " \t1. Look around\n " +
             " \t2. Exit\n");
     }
@@ -173,7 +200,7 @@ public class Game {
 
         player.setCurrentRoom(room);
 
-        System.out.println(String.format("You're in the %s\n", room.getName()));
+        System.out.println(String.format("\nYou're in the %s\n", room.getName()));
 
         delay(1000);
 
