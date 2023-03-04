@@ -22,6 +22,8 @@ public class StringParser {
                 stringList.add(string.substring(0, position));
                 string = string.substring(position + 1);
                 position = 0;
+                /** made line length 0 so it restarts the line count */
+                lineLength = 0;
             } else if (currentChar == ' ' && lineLength > maxLineLength) {
                 // If the lineLength exceeds the maxLineLength and a space is found, insert a
                 // line break where the space using two substrings. Reset the lineLength to 0 to
