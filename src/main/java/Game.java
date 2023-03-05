@@ -109,9 +109,9 @@ public class Game {
 
 
     public static void inRoomMove(){
-    System.out.println("Where do you want to go now?\n) +" +
-            " \t1. Look around room \n " +
-            " \t2. Leave room \n");
+        System.out.println("Where do you want to go now?\n) +" +
+                " \t1. Look around room \n " +
+                " \t2. Leave room \n");
     }
 
     public static void leaveRoom(){}

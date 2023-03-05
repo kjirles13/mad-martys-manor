@@ -40,6 +40,25 @@ public class Room extends Thing {
         this.phrase = phrase;
     }
 
+    public int getExitByDirection(String direction) {
+        switch (direction.toLowerCase()) {
+            case "north":
+            case "n":
+                return getN();
+            case "east":
+            case "e":
+                return getE();
+            case "south":
+            case "s":
+                return getS();
+            case "west":
+            case "w":
+                return getW();
+            default:
+                return -1;
+        }
+    }
+
     public int getN() {
         return n;
     }
