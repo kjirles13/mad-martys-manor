@@ -116,4 +116,6 @@ public class Room extends Thing {
     public void addTransition(String direction, String text) {
         transitions.put(direction, text);
     }
+
+
 }
