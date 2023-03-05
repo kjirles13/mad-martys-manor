@@ -87,7 +87,7 @@ public class Game {
 
         boolean running = true;
         System.out.println("Welllccommmeeee , now you're trapped");
-        enterRoom(1);
+        player.setCurrentRoom(map.get(1));
         // Kit tells you to go to office
 
         while (running){
@@ -127,7 +127,8 @@ public class Game {
     }
 
 
-    public static void enterRoom(int roomIndex) {
+    public static void enterRoom(String direction) {
+        int roomIndex = player.getCurrentRoom().getExitByDirection(direction);
         if (roomIndex == -1) {
             System.out.println("You can't go that way!");
             return;
