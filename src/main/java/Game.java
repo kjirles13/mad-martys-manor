@@ -175,7 +175,6 @@ public class Game {
     System.out.println("\nWhat do you want to do now?\n" +
             " \t1. Look around\n " +
             " \t2. Exit\n");
-    }
 
     //TODO create leaveRoom method
     public static void exitRoom(){
