@@ -87,7 +87,7 @@ public class Game {
 
         boolean running = true;
         System.out.println("Welllccommmeeee , now you're trapped");
-        player.setCurrentRoom(map.get(1));
+        enterRoom(1);
         // Kit tells you to go to office
 
         while (running){
@@ -109,9 +109,9 @@ public class Game {
 
 
     public static void inRoomMove(){
-    System.out.println("Where do you want to go now?\n) +" +
-            " \t1. Look around room \n " +
-            " \t2. Leave room \n");
+        System.out.println("Where do you want to go now?\n) +" +
+                " \t1. Look around room \n " +
+                " \t2. Leave room \n");
     }
 
     public static void leaveRoom(){}
@@ -127,8 +127,7 @@ public class Game {
     }
 
 
-    public static void enterRoom(String direction) {
-        int roomIndex = player.getCurrentRoom().getExitByDirection(direction);
+    public static void enterRoom(int roomIndex) {
         if (roomIndex == -1) {
             System.out.println("You can't go that way!");
             return;
@@ -142,16 +141,6 @@ public class Game {
             System.out.println("You're walking down the Grand Staircase.");
 
             delay(1000);
-        }
-
-        String transition = player.getCurrentRoom().getTransition(direction);
-        if (!transition.equals("")) {
-            System.out.println(transition);
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
         }
 
         Room room = map.get(roomIndex);
@@ -181,7 +170,6 @@ public class Game {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
-
     }
 
 }
